@@ -13,7 +13,6 @@ _An educational project teaching how to open-source an interactive Python quiz a
 ## Demo
 
 [![asciicast](https://asciinema.org/a/474148.svg)](https://asciinema.org/a/474148)
-:information_source: Check the [demo page](https://pwenker.github.io/quizli/demos.html) for more examples on how to use `quizli` :information_source:
 
 ## :mortar_board: Learning Guide
 
