@@ -1,0 +1,158 @@
+---
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                  Adding site information                 │
+#  ╰──────────────────────────────────────────────────────────╯
+  
+site_name: quizli
+site_url: https://pwenker.github.io/quizli
+site_description: An educational project teaching how to create an open-source Python package with the example of an interactive quiz app
+  
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                  Adding a git repository                 │
+#  ╰──────────────────────────────────────────────────────────╯
+# See: https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/
+ 
+repo_url: https://github.com/pwenker/quizli
+repo_name: pwenker/quizli
+edit_uri: edit/master/docs/
+  
+docs_dir: docs
+use_directory_urls: false
+
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                   Setting up the footer                  │
+#  ╰──────────────────────────────────────────────────────────╯
+# See: https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-footer/
+ 
+extra:
+  social:
+  - icon: fontawesome/brands/github
+    link: "https://www.github.com/pwenker"
+  - icon: fontawesome/brands/twitter
+    link: "https://www.twitter.com/PascalWenker"
+  - icon: fontawesome/brands/linkedin
+    link: "https://www.linkedin.com/in/pascal-wenker-25a568125/"
+  - icon: fontawesome/brands/youtube
+    link: "https://www.youtube.com/channel/UCYxDcdFLW-AMoHEfh7pG-oA"
+  disqus: "www-pwenker-com" 
+    
+copyright: Copyright &copy; 2021 - 2022 Pascal Wenker
+
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                Setting up the colorscheme                │
+#  ╰──────────────────────────────────────────────────────────╯
+# Here we set the color scheme and also enable toggling between a light and a dark mode.
+# See: https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/
+ 
+theme:
+  name: material
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+          
+  icon:
+    #  ╭──────────────────────────────────────────────────────────╮
+    #  │                Changing the logo and icons               │
+    #  ╰──────────────────────────────────────────────────────────╯
+    # See : https://squidfunk.github.io/mkdocs-material/setup/changing-the-logo-and-icons/
+    logo: material/head-question-outline
+    # See: https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/
+    repo: fontawesome/brands/github
+  # See: https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/
+  features:
+    - navigation.tabs
+    - navigation.indexes
+      
+  # Uncomment the line below to prevent typefaces from being loaded from Google Fonts
+  # See: https://squidfunk.github.io/mkdocs-material/setup/changing-the-fonts/#autoloading
+  # font: false
+    
+
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                   Setup MkDocs Plugins                   │
+#  ╰──────────────────────────────────────────────────────────╯
+# See: https://www.mkdocs.org/dev-guide/plugins/
+plugins:
+    # The built-in search plugin (https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/) 
+    - search 
+    - mkdocs-jupyter:
+        include_source: false
+        execute: false
+    - mkdocstrings: # This is used to generate documentation of source code
+           handlers:
+               python:
+                   setup_commands:
+                       - import sys
+                       - sys.path.append('../')
+                   selection:
+                       new_path_syntax: true
+    # See: https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#revision-date
+    - git-revision-date-localized:
+        fallback_to_build_date: true
+        enable_creation_date: false
+          
+
+#  ╭──────────────────────────────────────────────────────────╮
+#  │               Enabling Markdown extensions               │
+#  ╰──────────────────────────────────────────────────────────╯
+#   https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/
+markdown_extensions:
+  # The Table of Contents extension automatically generates a table of contents from a document, 
+  # which Material for MkDocs will render as part of the resulting page.
+  - toc:
+      permalink: true
+  # - codehilite:
+  #     guess_lang: false
+  - admonition
+  - pymdownx.details
+  - extra
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.critic
+    
+  # Adding emoji support
+  # See: https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#configuration
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji # (1)!
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+    
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                     Set up navigation                    │
+#  ╰──────────────────────────────────────────────────────────╯
+# See: https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/
+ 
+nav:
+   - User Guide:
+     - user_guide/index.md
+     - Command Line Interface: user_guide/cli.md
+     - Code Reference:
+       - code_reference/index.md
+       - Quiz: code_reference/quiz.md
+       - Layout: code_reference/layout.md
+       - Session: code_reference/session.md
+       - Examples: code_reference/examples.md
+       - CLI: code_reference/cli.md
+   - Learning Guide:
+     - learning_guide/index.md
+     - Interactive Quiz App: learning_guide/quiz.md
+     - Command Line Interface: learning_guide/cli.md
+     - Documentation: learning_guide/documentation.md
+     - Publishing: learning_guide/publishing.md
+   - Notebooks:
+     - Quizli: notebooks/quizli.ipynb
+   - Demos:
+     - demos.md

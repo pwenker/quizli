@@ -1,0 +1,58 @@
+
+# {==(1) Annotating our package==}
+# First we define some basic descriptions about our project.
+# More information about valid sections can be found in this link:
+# https://python-poetry.org/docs/master/pyproject/
+[tool.poetry]
+name = "quizli"
+homepage = "https://github.com/pwenker/quizli"
+documentation = "https://pwenker.github.io/quizli"
+version = "0.1.0"
+description = "An educational project teaching how to open-source an interactive Python quiz app"
+authors = ["Pascal Wenker <pwenker@posteo.de>"]
+readme = "README.md"
+license = "MIT"
+classifiers = [ # https://pypi.org/classifiers/
+    "Programming Language :: Python :: 3 :: Only",
+    "Environment :: Console",
+    "Intended Audience :: Education",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Topic :: Documentation",
+    "Topic :: Education",
+    "Topic :: Software Development",
+    "Typing :: Typed",
+]
+
+# {==(2) Defining an entrypoint for our CLI==}
+# Here we define the entrypoint to our app. Since we want to let
+# users run the app with the `quizli` command, we define it as such
+# below
+[tool.poetry.scripts]
+quizli = "quizli.main:app"
+
+# {==(3) Declaring Dependencies==}
+# The following section defines the dependencies of our project.
+# Note that poetry lets us split them up in
+# - regular dependencies, and
+# - dev-dependencies.
+# In this way, a users can install it with `poetry install --no-dev`
+# to not install the development dependencies they don't need.
+[tool.poetry.dependencies]
+python = "^3.8"
+rich = "^11.0.0"
+typer-cli = "^0.0.12"
+
+[tool.poetry.dev-dependencies]
+# Documentation
+mkdocs-material = "^8.1.8"
+## Plugins
+mkdocstrings = "^0.17.0"
+mkdocs-jupyter = "^0.19.0"
+
+# {==(4) Setting the build-sytem==} 
+# Here, we declare that we want poetry to build our package.
+[build-system] # See: https://www.python.org/dev/peps/pep-0518/#id27
+requires = ["poetry-core>=1.0.0"]         # For more information see: PEP 518
+build-backend = "poetry.core.masonry.api" # For more information see: PEP 517
