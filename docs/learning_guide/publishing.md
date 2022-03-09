@@ -46,10 +46,19 @@ To see the `pyproject.toml` file in action, take a look at the following example
 
 ## Publishing the package
 
-``` py title="Github Workflow to Publish Package"
+!!! info 
+    In order to publish the package to PyPi you need to create an account at [https://pypi.org/](https://pypi.org/).
 
---8<-- ".github/workflows/publish_package.yml"
-```
+To build & publish the package, we can again use Poetry:
+
+1. Build the package: `poetry build`
+2. Publish it: `poetry publish`
+
+That's all, the package is now available at [https://pypi.org/project/quizli/](https://pypi.org/project/quizli/) and 
+can be installed with `pip install quizli`.
+
+
+
 
 !!! info "Resources"
     - [PEP 517 - A build-system independent format for source trees](https://www.python.org/dev/peps/pep-0517/)
