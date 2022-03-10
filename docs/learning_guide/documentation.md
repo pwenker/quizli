@@ -107,7 +107,7 @@ your documentation and to customize it.
 
 ### 3. The Reference Section
 
-I bet at this point your documentation looks quite amazing already, but we can improve it even more by leveraging the [reference secion](https://squidfunk.github.io/mkdocs-material/reference/).
+I bet at this point your documentation looks quite amazing already, but we can improve it even more by leveraging the [reference section](https://squidfunk.github.io/mkdocs-material/reference/).
 
 !!! info 
     As of time of writing, the reference section comprises the following parts.
@@ -131,8 +131,6 @@ I bet at this point your documentation looks quite amazing already, but we can i
 
 
 ## Learning by Example: `quizli`
-
-After reading the previous sections, you might want see some examples on how 
 
 I encourage you to browse through `quizli's` documentation and whenever you see something you like,
 or you are curious of how things are done, take a look at the corresponding sections in the

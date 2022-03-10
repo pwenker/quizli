@@ -1,8 +1,13 @@
 # How to create an interactive quiz app with Python?
 
+Since the main purpose of the learning guide is to teach you how to create an open source project for an _existing_ app or library, we will only shortly describe `quizli` itself.
 
-Since the main purpose of this learning guide is to teach you how to create an open source project for an _existing_ application or library,
-we will only shortly list the main building blocks of `quizli's` code along with assignments and recommended references.
+!!! abstract "Learning Objectives"
+    By the end of this section, you should be able to:
+
+    * List the main building blocks of the `quizli`
+    * Modify & improve `quizli` via the experience you gained through the assignments
+    * Work with the `rich` library to make your own app interactive and beautiful
 
 ## 1. Main building blocks of a simple quiz app
 !!! note "Assignment 1" 
@@ -23,7 +28,6 @@ In order to bring color and interactivity into our quiz we make heavy use of the
     - b) :material-powershell: Create your own quiz layout class that inherits from `QuizLayoutBase`, similar to the `FancyQuizLayout`. It could be a minimalist quiz layout, or maybe you want to show off your creative power and design a beautiful und super-complex layout.
     
 !!! info "Resources" 
-
     - Read through the following sections of the `rich` documentation: 
         - [Introduction](https://rich.readthedocs.io/en/latest/introduction.html)
         - [Layouts](https://rich.readthedocs.io/en/latest/layout.html)
