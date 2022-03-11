@@ -73,9 +73,6 @@ jobs:
 #  ╰──────────────────────────────────────────────────────────╯
       - name: Upload coverage
         uses: codecov/codecov-action@v1
-        with:
-          file: ./coverage.xml
-          fail_ci_if_error: true
                   
 #  ╭──────────────────────────────────────────────────────────╮
 #  │   NOTE: In a real-world example you would add a another  │
