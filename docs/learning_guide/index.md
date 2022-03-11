@@ -1,4 +1,4 @@
-## :mortar_board: Welcome to the Learning Guide
+# :mortar_board: Welcome to the Learning Guide
 
 This learning guide teaches you how to create your own open-source Python project
 using `quizli` as an example.
@@ -9,6 +9,7 @@ Interactive quiz app| [How to create an interactive Python quiz app?](quiz.md)
 Command Line Interface | [How to add a CLI to your quiz app?](cli.md)
 Documentation | [How to create a slick documentation for your app?](documentation.md)
 Publishing | [How to build, manage and publish your Python package to PyPi?](publishing.md)
+Testing | [How to test your app?](testing.md)
 
 !!! Info "Information"
 
