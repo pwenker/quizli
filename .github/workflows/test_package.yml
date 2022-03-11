@@ -33,7 +33,9 @@ jobs:
   test:
     strategy:
       matrix:
-        os: [ "ubuntu-latest", "macos-latest"]
+        # NOTE: In the real world you should test on other
+        # operating systems as well!
+        os: [ "ubuntu-latest"] 
         python-version: ["3.7", "3.8", "3.9", "3.10" ]
     defaults:
       run:

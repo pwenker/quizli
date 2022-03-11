@@ -18,7 +18,6 @@ classifiers = [ # https://pypi.org/classifiers/
     "Intended Audience :: Education",
     "Intended Audience :: Developers",
     "Natural Language :: English",
-    "Operating System :: OS Independent",
     "Topic :: Documentation",
     "Topic :: Education",
     "Topic :: Software Development",
