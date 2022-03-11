@@ -69,7 +69,7 @@ jobs:
 #  │          Run test suite and output coverage file         │
 #  ╰──────────────────────────────────────────────────────────╯
       - name: Run tests
-        run: poetry run pytest --doctest-modules -vvv --cov-config .coveragerc --cov-report term --cov=. 
+        run: poetry run pytest --doctest-modules -vvv --cov-report=xml --cov=. 
 #  ╭──────────────────────────────────────────────────────────╮
 #  │                   Upload coverage stats                  │
 #  ╰──────────────────────────────────────────────────────────╯
