@@ -47,6 +47,7 @@ typer-cli = "^0.0.12"
 # Testing
 pytest = "^7.0.1"
 pytest-cov = "^3.0.0"
+typing-extensions = "^4.1.1"
 # Documentation
 mkdocs-material = "^8.1.8"
 ## Plugins
