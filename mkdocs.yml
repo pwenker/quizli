@@ -152,6 +152,7 @@ nav:
      - Command Line Interface: learning_guide/cli.md
      - Documentation: learning_guide/documentation.md
      - Publishing: learning_guide/publishing.md
+     - Testing: learning_guide/testing.md
    - Notebooks:
      - Quizli: notebooks/quizli.ipynb
    - Demos:

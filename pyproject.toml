@@ -7,7 +7,7 @@
 name = "quizli"
 homepage = "https://github.com/pwenker/quizli"
 documentation = "https://pwenker.github.io/quizli"
-version = "0.1.0"
+version = "1.0.0"
 description = "An educational project teaching how to open-source an interactive Python quiz app"
 authors = ["Pascal Wenker <pwenker@posteo.de>"]
 readme = "README.md"
@@ -18,7 +18,6 @@ classifiers = [ # https://pypi.org/classifiers/
     "Intended Audience :: Education",
     "Intended Audience :: Developers",
     "Natural Language :: English",
-    "Operating System :: OS Independent",
     "Topic :: Documentation",
     "Topic :: Education",
     "Topic :: Software Development",
@@ -45,6 +44,10 @@ rich = "^11.0.0"
 typer-cli = "^0.0.12"
 
 [tool.poetry.dev-dependencies]
+# Testing
+pytest = "^7.0.1"
+pytest-cov = "^3.0.0"
+typing-extensions = "^4.1.1"
 # Documentation
 mkdocs-material = "^8.1.8"
 ## Plugins

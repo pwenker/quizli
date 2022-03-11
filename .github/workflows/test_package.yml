@@ -1,0 +1,83 @@
+name: test_package
+
+on:
+  push:
+    branches:
+      - master
+      - main
+      - Add_testing
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+#  ╭──────────────────────────────────────────────────────────╮
+#  │             Check-out repo and set-up python             │
+#  ╰──────────────────────────────────────────────────────────╯
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+#  ╭──────────────────────────────────────────────────────────╮
+#  │              Load pip cache if cache exists              │
+#  ╰──────────────────────────────────────────────────────────╯
+      - uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip
+          restore-keys: ${{ runner.os }}-pip
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                  Install and run linters                 │
+#  ╰──────────────────────────────────────────────────────────╯
+      - run: python -m pip install black isort
+      - run: |
+          black . --check
+          isort .
+  test:
+    strategy:
+      matrix:
+        # NOTE: In the real world you should test on other
+        # operating systems as well!
+        os: [ "ubuntu-latest"] 
+        python-version: ["3.7", "3.8", "3.9", "3.10" ]
+    defaults:
+      run:
+        shell: bash
+    runs-on: ${{ matrix.os }}
+    steps:
+#  ╭──────────────────────────────────────────────────────────╮
+#  │             Check-out repo and set-up python             │
+#  ╰──────────────────────────────────────────────────────────╯
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Set up python ${{ matrix.python-version }}
+        id: setup-python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                Install & configure poetry                │
+#  ╰──────────────────────────────────────────────────────────╯
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: false
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                      Install quizli                      │
+#  ╰──────────────────────────────────────────────────────────╯
+      - name: Install quizli
+        run: poetry install --no-interaction
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+#  ╭──────────────────────────────────────────────────────────╮
+#  │          Run test suite and output coverage file         │
+#  ╰──────────────────────────────────────────────────────────╯
+      - name: Run tests
+        run: poetry run pytest --doctest-modules -vvv --cov-config .coveragerc --cov-report term --cov=. 
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                   Upload coverage stats                  │
+#  ╰──────────────────────────────────────────────────────────╯
+      - name: Upload coverage
+        uses: codecov/codecov-action@v1
+                  
+#  ╭──────────────────────────────────────────────────────────╮
+#  │   NOTE: In a real-world example you would add a another  │
+#  │   stage that runs if the test stage has been successful  │
+#  │                 and publishes the package                │
+#  ╰──────────────────────────────────────────────────────────╯

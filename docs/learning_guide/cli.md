@@ -1,4 +1,4 @@
-# How to create a CLI with **Typer**?
+# How to create a CLI with [**Typer**](https://github.com/tiangolo/typer)?
 
 !!! abstract "Learning Objectives"
     By the end of this section, you should be able to:
